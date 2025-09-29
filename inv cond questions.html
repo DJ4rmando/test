@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thought-Provoking Questions</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f9f9f9, #d0e6f6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 90%;
+    }
+    .question {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .navigation button {
+      background-color: #4A90E2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .navigation button:hover {
+      background-color: #357ABD;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="question" id="question">What would have happened if Steve Jobs hadn’t created Apple?</div>
+    <div class="navigation">
+      <button onclick="prevQuestion()">Previous</button>
+      <button onclick="nextQuestion()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      "What would have happened if Steve Jobs hadn’t created Apple?",
+      "How might the world be different today if Google had never existed?",
+      "What could have happened if Netflix had stayed only as a DVD rental service?",
+      "How would shopping be different if Amazon had never been founded?"
+    ];
+
+    let current = 0;
+
+    function showQuestion() {
+      document.getElementById('question').innerText = questions[current];
+    }
+
+    function nextQuestion() {
+      current = (current + 1) % questions.length;
+      showQuestion();
+    }
+
+    function prevQuestion() {
+      current = (current - 1 + questions.length) % questions.length;
+      showQuestion();
+    }
+  </script>
+</body>
+</html>
